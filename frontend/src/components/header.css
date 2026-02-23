@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --cream: #FFF8F0;
+  --warm-beige: #E8DCC4;
+  --dark-brown: #3E2723;
+  --cinnamon: #A67C52;
+  --gold: #D4AF37;
+  --burnt-orange: #C86E3C;
+  --soft-shadow: rgba(62, 39, 35, 0.08);
+}
+
+/* Header Navigation */
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+}
+
+.header-nav-scrolled {
+  background: rgba(255, 248, 240, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px var(--soft-shadow);
+}
+
+.header-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  letter-spacing: -0.02em;
+  animation: fadeInDown 0.8s ease-out;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.header-logo:hover {
+  color: var(--burnt-orange);
+}
+
+.header-nav-links {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  animation: fadeInDown 0.8s ease-out 0.2s both;
+}
+
+.header-nav-links a {
+  text-decoration: none;
+  color: var(--dark-brown);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.header-nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--burnt-orange);
+  transition: width 0.3s ease;
+}
+
+.header-nav-links a:hover {
+  color: var(--burnt-orange);
+}
+
+.header-nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Mobile Menu Button */
+.header-mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.header-mobile-menu-btn span {
+  width: 25px;
+  height: 3px;
+  background: var(--dark-brown);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.header-mobile-menu-btn:hover span {
+  background: var(--burnt-orange);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-logo {
+    font-size: 1.5rem;
+  }
+
+  .header-nav-links {
+    display: none;
+  }
+
+  .header-mobile-menu-btn {
+    display: flex;
+  }
+
+  .header-nav {
+    padding: 1rem 5%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-nav-links {
+    gap: 2rem;
+  }
+
+  .header-nav-links a {
+    font-size: 1rem;
+  }
+}

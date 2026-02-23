@@ -1,0 +1,377 @@
+/* ═══════════════════════════════════════════════════
+   FAVOURITES DROPDOWN — Warm Artisan Aesthetic
+   Matches cart.css + Favourites.css design system
+═══════════════════════════════════════════════════ */
+
+/* ── Wrapper ── */
+.fav-dropdown-wrapper {
+  position: relative;
+}
+
+/* ── Heart Icon Button (in navbar) ── */
+.fav-icon-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b3318;
+  transition: background 0.22s, color 0.22s, transform 0.22s;
+}
+
+.fav-icon-btn:hover {
+  background: rgba(239, 68, 68, 0.09);
+  color: #ef4444;
+  transform: scale(1.08);
+}
+
+.fav-icon-btn svg {
+  transition: transform 0.22s cubic-bezier(.34,1.56,.64,1);
+}
+
+.fav-icon-btn:hover svg {
+  transform: scale(1.18);
+}
+
+/* Filled heart when items exist */
+.fav-icon-filled {
+  fill: #ef4444;
+  color: #ef4444;
+}
+
+/* Count badge */
+.fav-badge {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  border: 2px solid #fffdf9;
+  line-height: 1;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+/* ── Dropdown Panel ── */
+.fav-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 340px;
+  background: #fffdf9;
+  border-radius: 20px;
+  border: 1.5px solid #ecddd0;
+  box-shadow:
+    0 4px 16px rgba(44,24,16,.10),
+    0 16px 48px rgba(44,24,16,.13);
+  z-index: 1000;
+  overflow: hidden;
+  animation: favDropIn 0.22s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes favDropIn {
+  from { opacity: 0; transform: translateY(-10px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Dropdown Header ── */
+.fav-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  border-bottom: 1.5px solid #ecddd0;
+  background: linear-gradient(135deg, #fff0f0 0%, #fdf8f4 100%);
+}
+
+.fav-dropdown-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c1810;
+  letter-spacing: -0.01em;
+}
+
+.fav-dropdown-title svg {
+  color: #ef4444;
+  fill: #ef4444;
+  flex-shrink: 0;
+}
+
+.fav-dropdown-count {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.76rem;
+  color: #c47a45;
+  font-weight: 500;
+  background: #f2e4d8;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+}
+
+/* ── Dropdown Body ── */
+.fav-dropdown-body {
+  max-height: 360px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ecddd0 transparent;
+}
+
+.fav-dropdown-body::-webkit-scrollbar { width: 4px; }
+.fav-dropdown-body::-webkit-scrollbar-track { background: transparent; }
+.fav-dropdown-body::-webkit-scrollbar-thumb {
+  background: #ecddd0;
+  border-radius: 2px;
+}
+
+/* ── Loading State ── */
+.fav-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 2.5rem 1.25rem;
+  color: #c47a45;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.88rem;
+}
+
+/* ── Empty State ── */
+.fav-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+}
+
+.fav-empty svg {
+  color: #ddb899;
+  margin-bottom: 0.25rem;
+}
+
+.fav-empty p {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #4a2512;
+}
+
+.fav-empty span {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: #c47a45;
+  line-height: 1.5;
+}
+
+/* ── List ── */
+.fav-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+}
+
+.fav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  transition: background 0.18s;
+  cursor: default;
+}
+
+.fav-item:hover {
+  background: #fdf8f4;
+}
+
+/* Thumbnail */
+.fav-item-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #f2e4d8;
+  border: 1px solid #ecddd0;
+}
+
+.fav-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.fav-item:hover .fav-item-image img {
+  transform: scale(1.07);
+}
+
+/* Info */
+.fav-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.fav-item-name {
+  margin: 0 0 2px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #2c1810;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.fav-item-category {
+  margin: 0 0 3px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  color: #c47a45;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.fav-item-price {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #8B4513;
+  letter-spacing: -0.01em;
+}
+
+.fav-unavailable {
+  display: inline-block;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-top: 3px;
+  letter-spacing: 0.03em;
+}
+
+/* Action Buttons */
+.fav-item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.fav-cart-btn,
+.fav-remove-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(.4,0,.2,1);
+}
+
+.fav-cart-btn {
+  background: #e8f5ee;
+  color: #2d6a4f;
+  border: 1.5px solid #6ee7b7;
+}
+
+.fav-cart-btn:hover:not(:disabled) {
+  background: #2d6a4f;
+  border-color: #2d6a4f;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(45,106,79,.25);
+}
+
+.fav-cart-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.fav-remove-btn {
+  background: #fff5f5;
+  color: #ef4444;
+  border: 1.5px solid #fca5a5;
+}
+
+.fav-remove-btn:hover:not(:disabled) {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(239,68,68,.25);
+}
+
+/* ── Dropdown Footer ── */
+.fav-dropdown-footer {
+  padding: 0.85rem 1rem;
+  border-top: 1.5px solid #ecddd0;
+  background: #fdf8f4;
+}
+
+.fav-view-all-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #2c1810;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+}
+
+.fav-view-all-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.fav-view-all-btn:hover {
+  background: #8B4513;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(139,69,19,.3);
+}
+
+/* ── Spinner ── */
+.fav-spinner {
+  animation: spin 0.75s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

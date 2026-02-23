@@ -1,0 +1,279 @@
+/* ═══════════════════════════════════════════════════
+   FOOTER — Warm Artisan Aesthetic
+   Matches cart.css + Favourites.css + userpanel.css
+═══════════════════════════════════════════════════ */
+
+/* ── Footer Shell ── */
+.footer {
+  background: linear-gradient(135deg, #1a0a00 0%, #2c1810 100%);
+  color: #fdf8f4;
+  position: relative;
+  overflow: hidden;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* Subtle gold radial glow */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background: radial-gradient(ellipse at 80% 30%, rgba(212,175,55,.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Dot texture */
+.footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="1" fill="%23fdf8f4" opacity="0.04"/></svg>');
+  pointer-events: none;
+}
+
+/* ── Footer Content Grid ── */
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5rem 5% 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Logo ── */
+.footer-logo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #fdf8f4;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+/* ── Description ── */
+.footer-desc {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.75;
+  color: rgba(253,248,244,.78);
+}
+
+/* ── Social Links ── */
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.social-link {
+  width: 42px;
+  height: 42px;
+  background: rgba(253,248,244,.08);
+  color: rgba(253,248,244,.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(253,248,244,.15);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+.social-link:hover {
+  background: #8B4513;
+  border-color: #8B4513;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(139,69,19,.4);
+}
+
+/* ── Section Titles ── */
+.footer-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #D4AF37;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+
+/* ── Footer Links ── */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links a {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: rgba(253,248,244,.75);
+  text-decoration: none;
+  transition: all 0.22s ease;
+  display: inline-block;
+  position: relative;
+  padding-left: 0;
+}
+
+.footer-links a::before {
+  content: '→';
+  position: absolute;
+  left: -18px;
+  opacity: 0;
+  transition: all 0.22s ease;
+  color: #D4AF37;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: #D4AF37;
+  padding-left: 18px;
+}
+
+.footer-links a:hover::before {
+  opacity: 1;
+  left: 0;
+}
+
+/* ── Contact List ── */
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.88rem;
+  color: rgba(253,248,244,.8);
+  line-height: 1.55;
+}
+
+.footer-contact li svg {
+  color: #c47a45;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Hours Box ── */
+.footer-hours {
+  margin-top: 0.5rem;
+  padding: 1.2rem 1.4rem;
+  background: rgba(253,248,244,.05);
+  border-radius: 12px;
+  border: 1px solid rgba(253,248,244,.1);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: rgba(253,248,244,.78);
+  line-height: 1.6;
+}
+
+.footer-hours p {
+  margin: 0.2rem 0;
+}
+
+.footer-hours strong {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-style: normal;
+  color: #D4AF37;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* ── Footer Bottom ── */
+.footer-bottom {
+  border-top: 1px solid rgba(253,248,244,.1);
+  padding: 1.75rem 5%;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-bottom-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: rgba(253,248,244,.5);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.footer-legal a {
+  color: rgba(253,248,244,.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-legal a:hover { color: #D4AF37; }
+
+.footer-legal span { opacity: 0.4; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 3rem 5% 2rem;
+    text-align: center;
+  }
+
+  .social-links { justify-content: center; }
+
+  .footer-links,
+  .footer-contact { align-items: center; }
+
+  .footer-links a::before { display: none; }
+  .footer-links a:hover { padding-left: 0; }
+
+  .footer-contact li {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 0.85rem;
+    text-align: center;
+  }
+
+  .footer-legal { flex-wrap: wrap; justify-content: center; }
+}
